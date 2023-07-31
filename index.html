@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My file</title>
+    <style>
+      h1{
+        text-align:center;
+        font-size:4rem;
+        font-family: 'Libre Baskerville', serif;
+        text-shadow:1px 3px 1px white;
+      }
+      #sound{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:80vh;
+        gap:15px;
+
+      }
+      .drum{
+        border-radius:13%;
+        border:15px solid rgb(138, 138, 228);
+
+        font-size:5rem;
+        background-color:white;
+        
+        flex:0.1;
+        padding:5px;
+      }
+      
+      body{
+        background-color:darkblue;
+
+        margin:0;
+
+      }
+      footer{
+        position:sticky;
+        text-align-last:center;
+        background-color:white;
+        top:100%;
+        height:30px;
+      }
+      .w {
+        background-image:url("images/tom1.png");
+      }
+      .a{
+        background-image:url("images/tom2.png");
+      }
+      .s{
+        background-image:url("images/tom3.png");
+      }
+      .d{
+        background-image:url("images/tom4.png");
+      }
+      .j{
+        background-image:url("images/snare.png");
+      }
+      .k{
+      background-image:url("images/crash.png");
+      }
+      .l{
+        background-image:url("images/kick.png");
+      }
+      .opacity{
+        opacity:0.5;
+        background-color:rgb(7, 7, 7);
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    
+  </head>
+  <body>
+    <h1>Drum 🥁Kit</h1>
+    <div id="sound">
+      <button class="drum w">w</button>
+      <button class="drum a">a</button>
+      <button class="drum s">s</button>
+      <button class="drum d">d</button>
+      <button class="drum j">j</button>
+      <button class="drum k">k</button>
+      <button class="drum l">l</button>
+    </div>
+  <footer>www.spike.co.in</footer>
+  </body>
+  <script>
+    //document.querySelector("button").addEventListener("click",track);
+    
+     for(var i=0;i<document.querySelectorAll("button").length;i++)
+     {
+      document.querySelectorAll("button")[i].addEventListener("click",function()
+       {
+        track(this.innerHTML);
+        //console.log(this[1]);
+
+       });
+     }
+     document.addEventListener("keypress",function(event)
+      {
+      track(event.key);
+      
+      //document.querySelector(event)
+      //console.log(event.srcElement);
+      });
+    function track(d)
+      {
+      var v=document.querySelector('.'+d).classList;
+      v.add("opacity");
+      setTimeout(function(){
+        v.remove("opacity");
+      },150);
+      //var d=(this.innerHTML);
+      if (d=="w"){
+        var s=new Audio("sounds/tom-1.mp3");
+      }
+      else if (d=="a")
+      var s=new Audio("sounds/tom-2.mp3");
+      else if(d=='s')
+      var s=new Audio("sounds/tom-3.mp3");
+      else if(d=='d')
+      var s=new Audio("sounds/tom-4.mp3");
+      else if(d=='j')
+      var s=new Audio("sounds/snare.mp3");
+      else if(d=='k'){
+      var s=new Audio("sounds/crash.mp3");
+
+        }
+      else if(d=='l'){
+      var s=new Audio("sounds/kick-bass.mp3");
+      //
+      }
+      s.play();
+      }
+     
+      /*var s=new Audio("sounds/crash.mp3");
+      s.play();
+      console.log(this);
+      console.log(this.style.font   );*/
+  </script>
+</html>
